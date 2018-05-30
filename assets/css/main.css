@@ -1,3 +1,5 @@
+@import "minireset.css";
+
 html, body
 {
   background-color: #fff;
@@ -26,3 +28,13 @@ a, a:hover, a:focus, a:visited
   max-width: 400px;
   max-height: 289px;
 }
+
+
+nav {
+  background-color: grey;
+}
+
+nav li {
+  display: inline-block;
+}
+
