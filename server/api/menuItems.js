@@ -6,7 +6,7 @@ const router = Router()
 
 router.get('/menuItems', function (req, res, next) {
   let queryText = `
-    SELECT
+    SELECT TOP 15
       id,
       name,
       price,
