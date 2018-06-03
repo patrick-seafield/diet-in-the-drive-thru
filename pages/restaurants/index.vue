@@ -5,7 +5,7 @@
     </h1>
     <ul class="restaurants">
       <li v-for="(restaurant, index) in restaurants" :key="index" class="restaurant">
-        <nuxt-link :to="{ name: 'id', params: { id: restaurant.id }}">
+        <nuxt-link :to="'/restaurants/' + restaurant.id">
           {{ restaurant.name }}
         </nuxt-link>
       </li>
