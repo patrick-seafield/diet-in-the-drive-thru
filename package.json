@@ -8,7 +8,7 @@
     "dev": "backpack dev",
     "build": "nuxt build && backpack build",
     "start": "cross-env NODE_ENV=production node build/main.js",
-    "forever-start": "cross-env NODE_ENV=production forever start build/main.js",
+    "forever-start": "cross-env NODE_ENV=production BUILD_ID=dontKillMe forever start build/main.js",
     "forever-stop": "forever stopall",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
