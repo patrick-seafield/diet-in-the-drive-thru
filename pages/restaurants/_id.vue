@@ -13,7 +13,7 @@
         <dd>{{ restaurant.lng }}</dd>
       </dl>
     </h2>
-    <nuxt-link class="button" to="/">
+    <nuxt-link class="button" to="/restaurants">
       Restaurants
     </nuxt-link>
   </section>
