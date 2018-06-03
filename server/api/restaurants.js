@@ -15,7 +15,7 @@ router.get('/restaurants', function (req, res, next) {
 
 router.get('/restaurants/:id', function (req, res, next) {
   db.get(
-    'SELECT restaurant_id, name, lat, lng FROM restaurant WHERE id = (?)',
+    'SELECT restaurant_id, name, lat, lng FROM restaurant WHERE restaurant_id = (?)',
     [req.params.id],
     function (err, row) {
       res.json(row)
