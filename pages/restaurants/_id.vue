@@ -23,9 +23,9 @@
 import axios from '~/plugins/axios'
 
 export default {
-  name: 'id',
+  name: 'restaurant_id',
   asyncData ({ params, error }) {
-    return axios.get('/api/restaurants/' + params.id)
+    return axios.get('/api/restaurants/' + params.restaurant_id)
       .then((res) => {
         return { restaurant: res.data }
       })
