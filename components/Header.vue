@@ -5,7 +5,7 @@
         <li><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/restaurants">Restaurants</nuxt-link></li>
         <li>Menu Items</li>
-        <li>FAQ</li>
+        <li><nuxt-link to="/faq">FAQ</nuxt-link></li>
       </ul>
     </nav>
   </header>

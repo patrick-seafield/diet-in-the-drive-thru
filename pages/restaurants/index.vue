@@ -32,6 +32,7 @@ export default {
 <style scoped>
 .title
 {
+  color: #e53737;
   margin: 30px 0;
 }
 .restaurants
