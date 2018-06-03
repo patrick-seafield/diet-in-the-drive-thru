@@ -5,17 +5,7 @@ import db from '../db'
 const router = Router()
 
 router.get('/menuItems', function (req, res, next) {
-  let queryText = `
-    SELECT TOP 15
-      id,
-      name,
-      price,
-      calories,
-      created_date
-    FROM menu_items
-    ORDER BY created_date DESC
-  `;
-  db.all(queryText, function (err, rows) {
+  db.all('SELECT menu_id, name, cal, carb, sodium, protein, fat, rid FROM menu_item', function (err, rows) {
     if (err) {
       next(err)
     }
@@ -24,18 +14,8 @@ router.get('/menuItems', function (req, res, next) {
 })
 
 router.get('/menuItems/:id', function (req, res, next) {
-  let queryText = `
-    SELECT
-      id,
-      name,
-      price,
-      calories,
-      created_date
-    FROM menu_items
-    WHERE id = (?)
-  `;
   db.get(
-    queryText,
+    'SELECT menu_id, name, cal, carb, sodium, protein, fat, rid FROM menu_item WHERE restaurant_id = (?)',
     [req.params.id],
     function (err, row) {
       res.json(row)

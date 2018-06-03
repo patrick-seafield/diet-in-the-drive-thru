@@ -5,7 +5,7 @@ import db from '../db'
 const router = Router()
 
 router.get('/restaurants', function (req, res, next) {
-  db.all('SELECT id, name, lat, lng FROM test_restaurant', function (err, rows) {
+  db.all('SELECT restaurant_id, name, lat, lng FROM restaurant', function (err, rows) {
     if (err) {
       next(err)
     }
@@ -15,8 +15,8 @@ router.get('/restaurants', function (req, res, next) {
 
 router.get('/restaurants/:id', function (req, res, next) {
   db.get(
-    'SELECT id, name, lat, lng FROM test_restaurant WHERE id = (?)',
-    [req.params.id],
+    'SELECT restaurant_id, name, lat, lng FROM restaurant WHERE restaurant_id = (?)',
+    [req.params.restaurant_id],
     function (err, row) {
       res.json(row)
     })

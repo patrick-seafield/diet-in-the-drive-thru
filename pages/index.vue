@@ -1,47 +1,69 @@
 <template>
   <section class="container">
     <h1 class="title">
-      RESTAURANTS
+      Welcome to Diet in the Drive-Thru!
     </h1>
-    <ul class="restaurants">
-      <li v-for="(restaurant, index) in restaurants" :key="index" class="restaurant">
-        <nuxt-link :to="{ name: 'id', params: { id: restaurant.id }}">
-          {{ restaurant.name }}
-        </nuxt-link>
-      </li>
-    </ul>
+
+</br>
+    <h2 class="enterZip">
+      Please enter your zip code so we can find the best deals available.
+    </h2>
+</br>
+    <div id="zipForm">
+      <form>
+        <b>Zip Code:</b>
+      </br></br>
+        <input type="text" name="zipcode" placeholder="Please Enter Zip Code"></br></br>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
   </section>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
 
-export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/restaurants')
-    return { restaurants: data }
-  },
-  head () {
-    return {
-      title: 'Restaurants'
-    }
-  }
-}
+
 </script>
 
 <style scoped>
-.title
-{
-  margin: 30px 0;
+
+h1 {
+  color: #e53737;
 }
-.restaurants
-{
-  list-style: none;
-  margin: 0;
-  padding: 0;
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
-.restaurant
-{
-  margin: 10px 0;
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
+
+input {
+  width: 15%;
+  text-align: center;
+  font-weight: bold;
+}
+
 </style>
+
