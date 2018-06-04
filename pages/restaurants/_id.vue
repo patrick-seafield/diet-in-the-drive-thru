@@ -5,12 +5,12 @@
       Restaurant
     </h1>
     <h2 class="info">
-      {{ restaurant.name }}
+      {{ restaurants.name }}
       <dl>
         <dt>Lat</dt>
-        <dd>{{ restaurant.lat }}</dd>
+        <dd>{{ restaurants.lat }}</dd>
         <dt>Lng</dt>
-        <dd>{{ restaurant.lng }}</dd>
+        <dd>{{ restaurants.lng }}</dd>
       </dl>
     </h2>
     <nuxt-link class="button" to="/restaurants">
@@ -27,7 +27,7 @@ export default {
   asyncData ({ params, error }) {
     return axios.get('/api/restaurants/' + params.restaurant_id)
       .then((res) => {
-        return { restaurant: res.data }
+        return { restaurants: res.data }
       })
       .catch((e) => {
         error({ statusCode: 404, message: 'Restaurant not found' })
@@ -35,7 +35,7 @@ export default {
   },
   head () {
     return {
-      title: `Restaurant: ${this.restaurant.name}`
+      title: `Restaurant: ${this.restaurants.name}`
     }
   }
 }
