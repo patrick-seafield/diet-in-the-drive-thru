@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1 class="title">
-      RESTAURANTS
+      Restaurants
     </h1>
     <ul class="restaurants">
       <li v-for="(restaurant, index) in restaurants" :key="index" class="restaurant">

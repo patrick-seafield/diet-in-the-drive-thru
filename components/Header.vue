@@ -4,7 +4,7 @@
       <ul>
         <li><nuxt-link to="/">Home</nuxt-link></li>
         <li><nuxt-link to="/restaurants">Restaurants</nuxt-link></li>
-        <li>Menu Items</li>
+        <li><nuxt-link to="/menuItems">Menu Items</nuxt-link></li>
         <li><nuxt-link to="/faq">FAQ</nuxt-link></li>
       </ul>
     </nav>
@@ -31,6 +31,8 @@ ul {
 }
 
 nav li {
+  font-family: "Passion One";
+  font-size: 1.5rem;
   color: white;
   padding-left: 2rem;
   padding-right: 2rem;
