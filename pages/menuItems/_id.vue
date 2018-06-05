@@ -1,21 +1,32 @@
 <template>
   <section class="container">
-    <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
-    <h1 class="title">
-      Restaurant
-    </h1>
-    <h2 class="info">
-      {{ restaurants.name }}
-      <dl>
-        <dt>Lat</dt>
-        <dd>{{ restaurants.lat }}</dd>
-        <dt>Lng</dt>
-        <dd>{{ restaurants.lng }}</dd>
-      </dl>
-    </h2>
-    <nuxt-link class="button" to="/restaurants">
-      Restaurants
-    </nuxt-link>
+    <h1 class="title">Menu Item: {{ name }}</h1>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Carbohydrates</th>
+          <th>Sodium</th>
+          <th>Protein</th>
+          <th>Fat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="menu-item">
+          <td>
+            <nuxt-link :to="'/api/menuItems/' + menu_id">
+              {{ name }}
+            </nuxt-link>
+          </td>
+          <td>{{ cal }}</td>
+          <td>{{ carb }}</td>
+          <td>{{ sodium }}</td>
+          <td>{{ protein }}</td>
+          <td>{{ fat }}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
@@ -23,19 +34,18 @@
 import axios from '~/plugins/axios'
 
 export default {
-  name: 'restaurant_id',
+  name: 'menu_id',
   asyncData ({ params, error }) {
-    return axios.get('/api/restaurants/' + params.restaurant_id)
-      .then((res) => {
-        return { restaurants: res.data }
-      })
-      .catch((e) => {
-        error({ statusCode: 404, message: 'Restaurant not found' })
-      })
+    try {
+      const { data } = axios.get('/api/menuItems/{+params.menu_id}')
+      return data
+    } catch (e) {
+      error({ message: 'Menu Item not found', statusCode: 404 })
+    }
   },
   head () {
     return {
-      title: `Restaurant: ${this.restaurants.name}`
+      title: `Menu Items: ${this.name}`
     }
   }
 }
@@ -44,17 +54,26 @@ export default {
 <style scoped>
 .title
 {
-  margin-top: 30px;
+  color: #e53737;
+  margin: 30px 0;
 }
-.info
+.menu-table
 {
-  font-weight: 300;
-  color: #9aabb1;
+  margin-left: auto;
+  margin-right: auto;
+}
+.menu-table th,
+.menu-table td {
+  padding: 0.25rem;
+}
+.menu-items
+{
+  list-style: none;
   margin: 0;
-  margin-top: 10px;
+  padding: 0;
 }
-.button
+.menu-item
 {
-  margin-top: 30px;
+  margin: 10px 0;
 }
 </style>

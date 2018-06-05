@@ -31,7 +31,7 @@ ul {
 }
 
 nav li {
-  font-family: "Passion One";
+  font-family: "Bree Serif";
   font-size: 1.5rem;
   color: white;
   padding-left: 2rem;
