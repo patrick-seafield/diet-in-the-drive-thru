@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="title">Menu Item: {{ name }}</h1>
+    <h1 class="title">Menu Item: {{ item.name }}</h1>
     <table class="menu-table">
       <thead>
         <tr>
@@ -15,15 +15,13 @@
       <tbody>
         <tr class="menu-item">
           <td>
-            <nuxt-link :to="'/api/menuItems/' + menu_id">
-              {{ name }}
-            </nuxt-link>
+              {{ item.name }}
           </td>
-          <td>{{ cal }}</td>
-          <td>{{ carb }}</td>
-          <td>{{ sodium }}</td>
-          <td>{{ protein }}</td>
-          <td>{{ fat }}</td>
+          <td>{{ item.cal }}</td>
+          <td>{{ item.carb }}</td>
+          <td>{{ item.sodium }}</td>
+          <td>{{ item.protein }}</td>
+          <td>{{ item.fat }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,16 +34,17 @@ import axios from '~/plugins/axios'
 export default {
   name: 'menu_id',
   asyncData ({ params, error }) {
-    try {
-      const { data } = axios.get('/api/menuItems/{+params.menu_id}')
-      return data
-    } catch (e) {
-      error({ message: 'Menu Item not found', statusCode: 404 })
-    }
+    return axios.get('/api/menuItems/' + params.id)
+      .then((res) => {
+        return { item: res.data }
+      })
+      .catch((e) => {
+        error({ statusCode: 404, message: 'Menu Item not found' })
+      })
   },
   head () {
     return {
-      title: `Menu Items: ${this.name}`
+      title: `Menu Items: ${this.item.name}`
     }
   }
 }

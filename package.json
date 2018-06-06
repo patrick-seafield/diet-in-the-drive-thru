@@ -11,21 +11,23 @@
     "forever-start": "cross-env NODE_ENV=production forever start build/main.js",
     "forever-stop": "forever stopall",
     "precommit": "npm run lint",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "test": "ava"
   },
   "dependencies": {
+    "ava": "^0.25.0",
     "axios": "^0.16.2",
     "body-parser": "^1.18.3",
     "cross-env": "^5.0.1",
     "express": "^4.15.3",
     "forever": "^0.15.3",
+    "jsdom": "^11.11.0",
     "nuxt": "^1.0.0-rc3",
     "source-map-support": "^0.4.15",
     "sqlite3": "^4.0.0",
     "vue-loader": "13.7.2"
   },
   "devDependencies": {
-    "prettier": "1.12.1",
     "babel-eslint": "^7.2.3",
     "backpack-core": "^0.4.1",
     "eslint": "^4.3.0",
@@ -33,8 +35,18 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-html": "^3.1.1",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-node": "^5.1.1", "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "1.12.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
   }
 }
