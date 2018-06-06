@@ -4,6 +4,7 @@
     <table class="menu-table">
       <thead>
         <tr>
+		  <th></th>
           <th>Name</th>
           <th>Calories</th>
           <th>Carbohydrates</th>
@@ -14,7 +15,8 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
-          <td>
+		  <td><button type="button">Add</button></td>
+		  <td>
             <nuxt-link :to="'/menuItems/' + item.menu_id">
               {{ item.name }}
             </nuxt-link>
@@ -27,7 +29,7 @@
         </tr>
       </tbody>
     </table>
-
+	
   </section>
 </template>
 
