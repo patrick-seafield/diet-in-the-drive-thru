@@ -15,12 +15,16 @@ module.exports = {
     ]
   },
   /*
-  ** Global CSS
-  */
+   ** Global CSS
+   */
   css: ['~/assets/css/main.css'],
   /*
-  ** Add axios globally
-  */
+   ** Add plugins
+   */
+  plugins: ['~/plugins/vue2-google-maps'],
+  /*
+   ** Add axios globally
+   */
   build: {
     vendor: ['axios'],
     /*
@@ -33,6 +37,20 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
+        })
+      }
+
+      // Include vue2-google-maps files.
+      // https://www.npmjs.com/package/vue2-google-maps
+      if (!ctx.isClient) {
+        // This instructs Webpack to include `vue2-google-maps`'s Vue files
+        // for server-side rendering
+        config.externals.splice(0, 0, function (context, request, callback) {
+          if (/^vue2-google-maps($|\/)/.test(request)) {
+            callback(null, false)
+          } else {
+            callback()
+          }
         })
       }
     }

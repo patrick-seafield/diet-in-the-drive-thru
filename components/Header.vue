@@ -3,6 +3,7 @@
     <nav>
       <ul>
         <li><nuxt-link to="/">Home</nuxt-link></li>
+        <li><nuxt-link to="/map">Map</nuxt-link></li>
         <li><nuxt-link to="/restaurants">Restaurants</nuxt-link></li>
         <li><nuxt-link to="/menuItems">Menu Items</nuxt-link></li>
         <li><nuxt-link to="/faq">FAQ</nuxt-link></li>

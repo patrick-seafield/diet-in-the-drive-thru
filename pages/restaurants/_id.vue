@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
+    <MiniMap :position="{ lat: Number(restaurants.lat), lng: Number(restaurants.lng) }" />
     <h1 class="title">
       Restaurant
     </h1>
@@ -21,6 +21,7 @@
 
 <script>
 import axios from '~/plugins/axios'
+import MiniMap from '~/components/MiniMap'
 
 export default {
   name: 'restaurant_id',
@@ -37,6 +38,9 @@ export default {
     return {
       title: `Restaurant: ${this.restaurants.name}`
     }
+  },
+  components: {
+    MiniMap
   }
 }
 </script>
