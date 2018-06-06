@@ -22,7 +22,8 @@
     "nuxt": "^1.0.0-rc3",
     "source-map-support": "^0.4.15",
     "sqlite3": "^4.0.0",
-    "vue-loader": "13.7.2"
+    "vue-loader": "13.7.2",
+    "vue2-google-maps": "^0.9.7"
   },
   "devDependencies": {
     "prettier": "1.12.1",
