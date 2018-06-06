@@ -30,6 +30,21 @@
       </tbody>
     </table>
 	
+	<h1 class="title">My Order</h1>
+    <table class="menu-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Calories</th>
+          <th>Carbohydrates</th>
+          <th>Sodium</th>
+          <th>Protein</th>
+          <th>Fat</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </section>
 </template>
 
