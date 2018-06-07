@@ -37,3 +37,9 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 ## Backpack
 
 We use [backpack](https://github.com/palmerhq/backpack) to watch and build the application, so you can use the latest ES6 features (module syntax, async/await, etc.).
+
+## Jenkins Build
+
+Commands for starting up Jenkins and configuring the build:
+
+`java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8091`
