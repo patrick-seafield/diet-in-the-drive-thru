@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import { Nuxt, Builder } from 'nuxt'
+import { Nuxt } from 'nuxt'
 import { JSDOM } from 'jsdom'
 import test from 'ava'
 
@@ -14,15 +14,14 @@ test.before(async () => {
     rootDir: resolve(__dirname, '..')
   }
   nuxt = new Nuxt(config)
-  await new Builder(nuxt).build()
   await nuxt.listen(3000, 'localhost')
 }, 30000)
 
 // Example of testing only generated html
-test('Route / exits and render header', async t => {
+test('Web Server is working', async t => {
   const context = {}
   const { html } = await nuxt.renderRoute('/', context)
-  t.true(html.includes('<div id="__nuxt">'))
+  t.true(html.includes('<!DOCTYPE html>'))
 })
 
 // Example of testing via DOM checking
