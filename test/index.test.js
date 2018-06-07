@@ -27,13 +27,13 @@ test('Web Server is working', async t => {
 test('Header shows up', async t => {
   const context = {}
   const { html } = await nuxt.renderRoute('/', context)
-  t.true(html.includes('<header>'))
+  t.true(html.includes('<header'))
 })
 
 test('Footer shows up', async t => {
   const context = {}
   const { html } = await nuxt.renderRoute('/', context)
-  t.true(html.includes('<footer>'))
+  t.true(html.includes('<footer'))
 })
 
 
