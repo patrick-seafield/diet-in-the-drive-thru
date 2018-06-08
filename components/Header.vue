@@ -17,7 +17,7 @@
 
 header {
   width: 100%;
-  height: 3rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,19 +35,18 @@ nav li {
   font-family: "Bree Serif";
   font-size: 1.5rem;
   color: white;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 0.5rem;
+  padding: 12px 12px 12px 12px;
+  vertical-align: middle;
+}
+
+nav li:hover {
+  background-color: #4E5F70;
+  transition: 0.2s ease-in-out;
 }
 
 a {
   text-decoration: none;
   color: white;
-}
-
-a:hover {
-  color: lightgreen;
-  font-weight: bold;
 }
 
 </style>
