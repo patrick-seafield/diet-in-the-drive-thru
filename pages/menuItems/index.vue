@@ -3,8 +3,7 @@
     <h1 class="title">Menu Items</h1>
     <table class="menu-table">
       <thead>
-        <tr>
-		  <th></th>
+        <tr><th></th>
           <th>Name</th>
           <th>Calories</th>
           <th>Carbohydrates</th>

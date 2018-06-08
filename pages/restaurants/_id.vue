@@ -2,17 +2,24 @@
   <section class="container">
     <MiniMap :position="{ lat: Number(restaurants.lat), lng: Number(restaurants.lng) }" />
     <h1 class="title">
-      Restaurant
-    </h1>
-    <h2 class="info">
       {{ restaurants.name }}
-      <dl>
-        <dt>Lat</dt>
-        <dd>{{ restaurants.lat }}</dd>
-        <dt>Lng</dt>
-        <dd>{{ restaurants.lng }}</dd>
-      </dl>
-    </h2>
+    </h1>
+    <table class="restaurants-table">
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Open</th>
+          <th>Close</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ restaurants.rating }}</td>
+          <td>{{ restaurants.open }}</td>
+          <td>{{ restaurants.close }}</td>
+        </tr>
+      </tbody>
+    </table>
     <nuxt-link class="button" to="/restaurants">
       Restaurants
     </nuxt-link>
@@ -56,6 +63,16 @@ export default {
   color: #9aabb1;
   margin: 0;
   margin-top: 10px;
+}
+.restaurants-table
+{
+  margin-left: auto;
+  margin-right: auto;
+}
+.restaurants-table td,
+.restaurants-table th
+{
+  padding: 0.25rem;
 }
 .button
 {
