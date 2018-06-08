@@ -6,11 +6,12 @@
         <tr>
 		  <th></th>
           <th>Name</th>
+          <th>Price($)</th>
           <th>Calories</th>
-          <th>Carbohydrates</th>
-          <th>Sodium</th>
-          <th>Protein</th>
-          <th>Fat</th>
+          <th>Carbohydrates(g)</th>
+          <th>Sodium(g)</th>
+          <th>Protein(g)</th>
+          <th>Fat(g)</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@
               {{ item.name }}
             </nuxt-link>
           </td>
+          <td>{{ item.price }}</td>
           <td>{{ item.cal }}</td>
           <td>{{ item.carb }}</td>
           <td>{{ item.sodium }}</td>
