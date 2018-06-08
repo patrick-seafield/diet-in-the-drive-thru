@@ -3,7 +3,7 @@
     <h1 class="title">Menu Items</h1>
     <table class="menu-table">
       <thead>
-        <tr><th></th>
+        <tr>
           <th>Name</th>
           <th>Price($)</th>
           <th>Calories</th>
@@ -15,7 +15,6 @@
       </thead>
       <tbody>
         <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
-		  <td><button type="button">Add</button></td>
 		  <td>
             <nuxt-link :to="'/menuItems/' + item.menu_id">
               {{ item.name }}
@@ -32,21 +31,41 @@
     </table>
 	
 	<h1 class="title">My Order</h1>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Calories</th>
-          <th>Carbohydrates</th>
-          <th>Sodium</th>
-          <th>Protein</th>
-          <th>Fat</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
+    <table
+        :data="cart"
+        stripe
+        style="width: 35%"
+        align="center"
+        class="meal-cart">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price($)</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>
+                        <p class="text-center">
+                            {{ counter }} <br>
+                        </p>
+                    </td>
+                    <td>
+                        <button @click="incrementCounter" size="mini">
+                        +
+                        </button>
+                        <button @click="decrementCounter" size="mini">
+                        -
+                        </button>
+                    </td>
+            </table-column>
+            </tr>
+            </tbody>
     </table>
-  </section>
+    </section>
 </template>
 
 <script>
@@ -60,6 +79,20 @@ export default {
   head () {
     return {
       title: 'Menu Items'
+    }
+  },
+  data () {
+    return {
+      title: 'Counter',
+      counter: 0
+    }
+  },
+  methods: {
+    incrementCounter () {
+      this.counter++
+    },
+    decrementCounter () {
+      this.counter--
     }
   }
 }
