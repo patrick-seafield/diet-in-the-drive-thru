@@ -40,6 +40,21 @@ We use [backpack](https://github.com/palmerhq/backpack) to watch and build the a
 
 ## Jenkins Build
 
-Commands for starting up Jenkins and configuring the build:
+Ubuntu 16.04 LTS as base server. Commands for starting up Jenkins and configuring the build:
 
-`java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8091`
+ports opened:
+22 - SSH
+3000 - Web Server
+8091 - Jenkins
+
+```sh
+sudo apt-get install build-essential curl python-software-properties libsqlite3-dev
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs  # install node 8.1 for stability
+
+# download and run jenkins
+wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war
+java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8091
+```
+
+Note: In order for `sqlite3` package to build correclty

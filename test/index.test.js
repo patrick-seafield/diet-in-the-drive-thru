@@ -36,7 +36,28 @@ test('Footer shows up', async t => {
   t.true(html.includes('<footer'))
 })
 
+test('Map displays correctly', async t => {
+  const context = {}
+  const { html } = await nuxt.renderRoute('/map', context)
+  t.true(html.includes('<div class="restaurant-map">'))
+})
 
+test('Restaurants page displays correctly', async t => {
+  const context = {}
+  const { html } = await nuxt.renderRoute('/restaurants', context)
+  t.true(html.includes('class="title"'))
+})
+
+test('Menu Item headers display', async t => {
+  const window = await nuxt.renderAndGetWindow('/menuItems')
+  t.is(window.document.getElementsByClassName("title")[0].color, '#e53737')
+})
+
+test('Restaurants page displays correctly', async t => {
+  const context = {}
+  const { html } = await nuxt.renderRoute('/faq', context)
+  t.true(html.includes('class="title"'))
+})
 
 // Close server and ask nuxt to stop listening to file changes
 test.after('Closing server and nuxt.js', t => {
