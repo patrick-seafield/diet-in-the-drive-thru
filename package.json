@@ -12,7 +12,7 @@
     "forever-stop": "forever stopall",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "dependencies": {
     "ava": "^0.25.0",
