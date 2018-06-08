@@ -14,7 +14,7 @@
         <b>Zip Code:</b>
       </br></br>
         <input type="text" name="zipcode" placeholder="Please Enter Zip Code"></br></br>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <a href="/map" class="btn btn-primary">Submit</a>
       </form>
     </div>
   </section>
@@ -35,6 +35,7 @@ h1 {
     color: #fff;
     background-color: #337ab7;
     border-color: #2e6da4;
+    text-decoration: none;
 }
 
 .btn {
