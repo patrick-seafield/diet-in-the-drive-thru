@@ -1,14 +1,13 @@
 <template>
-  <section class="container">
+  <section class="container burger-background">
     <h1 class="title">
-      Welcome to Diet in the Drive-Thru!
+      Diet in the Drive-Thru
     </h1>
-
-</br>
+    </br>
     <h2 class="enterZip">
-      Please enter your zip code so we can find the best deals available.
+      Enter your zip code so we can find the best deals available.
     </h2>
-</br>
+    </br>
     <div id="zipForm">
       <form>
         <b>Zip Code:</b>
@@ -28,7 +27,23 @@
 <style scoped>
 
 h1 {
-  color: #e53737;
+  color: white;
+  font-size: 9rem;
+}
+
+.enterZip {
+  text-shadow: 2px -2px 0 black;
+  font-size: 1.5rem;
+}
+
+.burger-background {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/background.jpg");
+  background-size: cover;
+  height: 1000px;
+  display: table;
+  width: 100%;
+  background-position: center top;
+  color: white;
 }
 
 .btn-primary {
@@ -39,6 +54,7 @@ h1 {
 }
 
 .btn {
+    text-decoration: none;
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -63,7 +79,8 @@ h1 {
 input {
   width: 15%;
   text-align: center;
-  font-weight: bold;
+  padding: 0.5rem;
+  font-family: "Passion One", sans-serif;
 }
 
 </style>

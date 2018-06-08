@@ -58,3 +58,8 @@ java -Dhudson.util.ProcessTree.disable=true -jar jenkins.war --httpPort=8091
 ```
 
 Note: In order for `sqlite3` package to build correclty
+
+## Frontpage Image
+
+No attribution required free use license:
+https://www.pexels.com/photo/food-dinner-lunch-unhealthy-70497/

@@ -21,7 +21,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: grey;
+  background-color: #1E2124;
 }
 
 ul {
