@@ -11,6 +11,12 @@
         <dd>{{ restaurants.lat }}</dd>
         <dt>Lng</dt>
         <dd>{{ restaurants.lng }}</dd>
+        <dt>Customer Avg. Rating</dt>
+        <dd>{{ restaurants.rating }}</dd>
+        <dt>Opening Time</dt>
+        <dd>{{ restaurants.open }}</dd>
+        <dt>Closing Time</dt>
+        <dd>{{ restaurants.close }}</dd>
       </dl>
     </h2>
     <nuxt-link class="button" to="/restaurants">
