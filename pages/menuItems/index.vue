@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>Price($)</th>
+                <th>Price</th>
                 <th>Quantity</th>
             </tr>
         </thead>
@@ -19,7 +19,7 @@
                         {{ item.name }}
                     </nuxt-link>
                 </td>
-                <td>{{ item.price }}</td>
+                <td>${{ item.price }}</td>
                 <td>
                     <p class="text-center">
                         {{ item.orderCount }} <br>
@@ -42,23 +42,23 @@
         <thead>
             <tr>
                 <th>Qty:</th>
-                <th>Price($)</th>
+                <th>Price</th>
                 <th>Calories</th>
-                <th>Carbohydrates(g)</th>
-                <th>Sodium(g)</th>
-                <th>Protein(g)</th>
-                <th>Fat(g)</th>
+                <th>Carbohydrates</th>
+                <th>Sodium</th>
+                <th>Protein</th>
+                <th>Fat</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>{{ totalOrderCount }}</td>
-                <td>{{ totalPrice }}</td>
-                <td>{{ totalCalories }}</td>
-                <td>{{ totalCarbs }}</td>
-                <td>{{ totalSodium }}</td>
-                <td>{{ totalProtein }}</td>
-                <td>{{ totalFat }}</td>
+                <td>${{ totalPrice }} </td>
+                <td>{{ totalCalories }} </td>
+                <td>{{ totalCarbs }}g</td>
+                <td>{{ totalSodium }}g</td>
+                <td>{{ totalProtein }}g</td>
+                <td>{{ totalFat }}g</td>
             </tr>
         </tbody>
     </table>
