@@ -50,14 +50,14 @@
                     <td>{{ item.price }}</td>
                     <td>
                         <p class="text-center">
-                            {{ counter }} <br>
+                            {{ item.orderCount }} <br>
                         </p>
                     </td>
                     <td>
-                        <button @click="incrementCounter" size="mini">
+                        <button @click="incrementCounter(item.menu_id)" size="mini">
                         +
                         </button>
-                        <button @click="decrementCounter" size="mini">
+                        <button @click="decrementCounter(item.menu_id)" size="mini">
                         -
                         </button>
                     </td>
@@ -65,37 +65,61 @@
             </tr>
             </tbody>
     </table>
+    <p>
+      {{ totalOrderCount }}
+    </p>
     </section>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+ import axios from '~/plugins/axios'
 
-export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/menuItems')
-    return { menuItems: data }
-  },
-  head () {
-    return {
-      title: 'Menu Items'
-    }
-  },
-  data () {
-    return {
-      title: 'Counter',
-      counter: 0
-    }
-  },
-  methods: {
-    incrementCounter () {
-      this.counter++
-    },
-    decrementCounter () {
-      this.counter--
-    }
-  }
-}
+ export default {
+   async asyncData () {
+     let { data } = await axios.get('/api/menuItems')
+
+     // Create an order count for each menu item.
+     for (let i = 0; i < data.length; i++) {
+       data[i].orderCount = 0
+     }
+
+     return {
+       menuItems: data
+     }
+   },
+   head () {
+     return {
+       title: 'Menu Items'
+     }
+   },
+   data () {
+     return {
+       title: 'Counter',
+       counter: 0
+     }
+   },
+   methods: {
+     incrementCounter (menuId) {
+       let index = this.menuItems.findIndex(item => item.menu_id === menuId)
+       this.menuItems[index].orderCount = this.menuItems[index].orderCount + 1
+     },
+     decrementCounter (menuId) {
+       let index = this.menuItems.findIndex(item => item.menu_id === menuId)
+       if (this.menuItems[index].orderCount > 0) {
+         this.menuItems[index].orderCount = this.menuItems[index].orderCount - 1
+       }
+     }
+   },
+   computed: {
+     totalOrderCount () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += mitem.orderCount
+       })
+       return total
+     }
+   }
+ }
 </script>
 
 <style scoped>
