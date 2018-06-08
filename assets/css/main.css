@@ -127,3 +127,6 @@ nav li {
   display: inline-block;
 }
 
+#__nuxt section {
+  padding-top: 1rem;
+}
