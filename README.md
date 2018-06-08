@@ -48,7 +48,7 @@ ports opened:
 8091 - Jenkins
 
 ```sh
-sudo apt-get install build-essential curl python-software-properties
+sudo apt-get install build-essential curl python-software-properties libsqlite3-dev
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs  # install node 8.1 for stability
 
