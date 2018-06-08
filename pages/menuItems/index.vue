@@ -1,73 +1,67 @@
 <template>
   <section class="container">
     <h1 class="title">Menu Items</h1>
-    <table class="menu-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price($)</th>
-          <th>Calories</th>
-          <th>Carbohydrates(g)</th>
-          <th>Sodium(g)</th>
-          <th>Protein(g)</th>
-          <th>Fat(g)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
-		  <td>
-            <nuxt-link :to="'/menuItems/' + item.menu_id">
-              {{ item.name }}
-            </nuxt-link>
-          </td>
-          <td>{{ item.price }}</td>
-          <td>{{ item.cal }}</td>
-          <td>{{ item.carb }}</td>
-          <td>{{ item.sodium }}</td>
-          <td>{{ item.protein }}</td>
-          <td>{{ item.fat }}</td>
-        </tr>
-      </tbody>
-    </table>
-	
-	<h1 class="title">My Order</h1>
     <table
-        :data="cart"
-        stripe
         style="width: 35%"
         align="center"
         class="meal-cart">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Price($)</th>
-                    <th>Quantity</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.price }}</td>
-                    <td>
-                        <p class="text-center">
-                            {{ item.orderCount }} <br>
-                        </p>
-                    </td>
-                    <td>
-                        <button @click="incrementCounter(item.menu_id)" size="mini">
-                        +
-                        </button>
-                        <button @click="decrementCounter(item.menu_id)" size="mini">
-                        -
-                        </button>
-                    </td>
-            </table-column>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price($)</th>
+                <th>Quantity</th>
             </tr>
-            </tbody>
+        </thead>
+        <tbody>
+            <tr v-for="(item, index) in menuItems" :key="index" class="menu-item">
+                <td>
+                    <nuxt-link :to="'/menuItems/' + item.menu_id">
+                        {{ item.name }}
+                    </nuxt-link>
+                </td>
+                <td>{{ item.price }}</td>
+                <td>
+                    <p class="text-center">
+                        {{ item.orderCount }} <br>
+                    </p>
+                </td>
+                <td>
+                    <button @click="incrementCounter(item.menu_id)" size="mini">
+                        +
+                    </button>
+                    <button @click="decrementCounter(item.menu_id)" size="mini">
+                        -
+                    </button>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    <p>
-      {{ totalOrderCount }}
-    </p>
+	
+	<h1 class="title">My Order Summary</h1>
+    <table class="menu-table">
+        <thead>
+            <tr>
+                <th>Qty:</th>
+                <th>Price($)</th>
+                <th>Calories</th>
+                <th>Carbohydrates(g)</th>
+                <th>Sodium(g)</th>
+                <th>Protein(g)</th>
+                <th>Fat(g)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ totalOrderCount }}</td>
+                <td>{{ totalPrice }}</td>
+                <td>{{ totalCalories }}</td>
+                <td>{{ totalCarbs }}</td>
+                <td>{{ totalSodium }}</td>
+                <td>{{ totalProtein }}</td>
+                <td>{{ totalFat }}</td>
+            </tr>
+        </tbody>
+    </table>
     </section>
 </template>
 
@@ -115,6 +109,48 @@
        let total = 0
        this.menuItems.forEach(mitem => {
          total += mitem.orderCount
+       })
+       return total
+     },
+     totalPrice () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.price * mitem.orderCount)
+       })
+       return total
+     },
+     totalCalories () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.cal * mitem.orderCount)
+       })
+       return total
+     },
+     totalCarbs () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.carb * mitem.orderCount)
+       })
+       return total
+     },
+     totalSodium () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.sodium * mitem.orderCount)
+       })
+       return total
+     },
+     totalProtein () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.protein * mitem.orderCount)
+       })
+       return total
+     },
+     totalFat () {
+       let total = 0
+       this.menuItems.forEach(mitem => {
+         total += (mitem.fat * mitem.orderCount)
        })
        return total
      }
